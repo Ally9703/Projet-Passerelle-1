@@ -1,135 +1,235 @@
-// DECLARATION DES ELEMENTS
-
 const elements = {
-    scrore  : null,
-    reponse : null,
-    choix   : null
+    score  : null,
+    reponse: null,
+    choix: null
 };
 
-// Tavleau des mots à deviner
-const motsADeviner = [
 
-    'ALLIANCE',
-    'LOUIS',
-    'FRANCE'    
+let choix = [];
+let mot = '';
+let motMappage = [];
+let choixMappage = [];
+let compterScore = 0;
+let scoreMax = 8;
+
+const mots = [
+    'TELEVISION',
+    'GARAGE',
+    'RESTAURANT',
+    'SANDWICH',
+    'BISCUIT',
+    'ELEPHANT',
+    'CROCODILE',
+    'HAMSTER',
+    'TRAMWAY',
+    'TAXI',
+    'AMBULANCE',
+    'SCOOTER',
+    'PRESIDENT',
+    'ABSTENTION',
+    'ABSTINENCE',
+    'ACCESSIBLE',
+    'HUMOUR',
+    'IDIOT',
+    'ESSENCE',
+    'IMPORTANT',
+    'INTERNET',
+    'INTERNATIONAL',
+    'MATHS',
+    'POLICE',
+    'SIMPLE',
+    'SPORT',
+    'IMAGINATION',
+    'VIOLET',
+    'ROSE',
+    'LEGAL'
 ];
 
-// Déclaration des variables 
 
-let choix        = [];
-let mot          = '';
-let motMappage   = [];
-let choixMappage = [];
+const init = () => {
+    // console.log('>> #init');
 
-// LES METHODES 
-const initialisation = () =>{
-    // console.log('Savoir en permennace dans la console que tout va bien');
+    // Attach elements
+    elements.score = document.querySelector('#score');
+    elements.reponse = document.querySelector('#reponse');
+    elements.choix = document.querySelector('#choix');
 
-    // Selection des éléments
-    elements.scrore     = document.querySelector('#scrore');
-    elements.reponse    = document.querySelector('#reponse');
-    elements.choix      = document.querySelector('#choix');
-
-    // Choisir le mot
-    mot = choixDuMot();
-    // console.log('mot à deviner', mot);
-
-    // Générer le choix qui est avec les lettre de l'alphabet
-    choix = generChoix();
-    // console.log(choix);
-
-    // créer un mappage de mot
+    // Choisir mot
+    mot = choisirMot();
+    // console.log('mot', mot);
+    //  - créer mot mappage
     motMappage = obtenirMotMappage(mot);
-    // console.log('motMappage', motMappage);
-
-    // créer un mappage de choix
-    choixMappage = obtenirChoixMappage(choix);
+    console.log('motMappage', motMappage);
+    // Generer choix
+    choix = genererChoix();
+    // console.log(choix);
+    //  - créer choix mappage
+    choixMappage = genererChoixMappage(choix);
     // console.log(choixMappage);
-
-    // Afficher les mots
+    // Afficher mot
     afficherMot(motMappage);
-    // Afficher le choix
+    // Afficher choix
     afficherChoix(choixMappage);
+    // Display score
+    // afficherScore();
+    // Listen events
+    //    - mouse events
+    elements.choix.addEventListener('click', ({ target }) => {
+        // evt:MouseEvent evt.target => { target }
+        if (target.matches('li')) {
+            chequerLettre(target.innerHTML);
+        } 
+    });
+    //    - keyboard events
+    document.addEventListener('keydown', ({ keyCode }) => {
+        // evt:KeyboardEvent evt.keyCode => { keyCode }
+        // console.log('keyCode', keyCode);
+        const lettre = String.fromCharCode(keyCode);
+        // console.log('lettre', lettre);
+        if (keyCode >= 65 && keyCode <= 90) {
+            chequerLettre(lettre);
+        }
+    });
+
 
 };
 
+    // chequer lettre
+    //  - if not in mot: add score
+    //  - if in mot: display lettre
+    //  - finJeux
+    //     - if score == max: loseGame
+    //     - if lettre are visible: gagnerJeux
+const chequerLettre = (lettre) => {
+    console.log(lettre);
+    let estLettreDansMot = false;
+    let estToutLettreTouvrer = true;
+    // console.log('isLetterWord before loop', estLettreDansMot);
+    motMappage.forEach((lettreMappage) => {
+        // console.log('lettreMappage.lettre', lettreMappage.lettre);
+        if (lettreMappage.lettre === lettre) {
+            lettreMappage.estVisible = true;
+            estLettreDansMot = true;
+        }
+        if (!lettreMappage.estVisible) {
+            estToutLettreTouvrer = false;
+        }
+    });
+    choixMappage.forEach((lettreMappage) => {
+        if (lettreMappage.lettre === lettre) {
+            lettreMappage.estChoisi = true;
+        }
+    });
+    afficherChoix(choixMappage);
+    if (estLettreDansMot === true) {
+        afficherMot(motMappage);
+    } else {
+        compterScore++;
+        afficherScore();
+    }
 
-// Affichage de mot et de choix
+    if (compterScore === scoreMax) {
+        finJeux();
+    }
+    if (estToutLettreTouvrer) {
+        gagnerJeux();
+    }
+    // console.log('isLetterWord after loop', estLettreDansMot);
+};
+
+const finJeux = () => {
+    motMappage.forEach(w => w.estVisible = true);
+    afficherMot(motMappage);
+    document.querySelector('body').style.backgroundColor = 'red';
+    elements.choix.innerHTML = `<h1>Tu as perdu !</h1>`;
+};
+const gagnerJeux = () => {
+    elements.choix.innerHTML = `<h1>Félicitation tu as gagné la parties!</h1>`;
+}
+
+
+window.addEventListener('load', () => {
+    init();
+});
+
 const afficherChoix = (choixMappage) => {
     const choixHtml = choixMappage.map((lettreMappage) => {
         if (lettreMappage.estChoisi === false) {
-            return `<li>${lettreMappage.letter}</li>`;
+            return `<li>${lettreMappage.lettre}</li>`;
         } else {
-            return `<li class="desactiver">${lettreMappage.lettre}</li>`;
-        };
+            return `<li class="disabled">${lettreMappage.lettre}</li>`;
+        }
     });
-    
     elements.choix.querySelector('ul').innerHTML = choixHtml.join('');
 };
 
-const afficherMot   = (motMappage) => {
-    
-    const motHtml  =  motMappage.map((lettreMappage) =>{
-        if(lettreMappage.estVisible === true){
-            return ` <li>${lettreMappage.lettre}</li>`;
-        }else{
+const afficherScore = () => {
+    // elements.score.innerHTML = `${compterScore} / ${scoreMax}`;
+    elements.score.innerHTML = `<img src="images/00${compterScore}.png" alt="hangman" />`;
+};
+
+const afficherMot = (motMappage) => {
+    const motHtml = motMappage.map((lettreMappage) => {
+        if (lettreMappage.estVisible === true) {
+            return `<li>${lettreMappage.lettre}</li>`;
+        } else {
             return `<li>_</li>`;
         }
-      
     });
-    // console.log('motHtml', motHtml);
-    elements.reponse.querySelector('ul').innerHTML = motHtml;
 
-    
+    elements.reponse.querySelector('ul').innerHTML = motHtml.join('');
 };
 
-// la méthode choixDuMot
-const choixDuMot = () =>{
-    const generIndexDuMot = generMotAleatoire(0, motsADeviner.length-1);
-    return motsADeviner[generIndexDuMot];
-};
-
-const obtenirMotMappage = (mot) =>{
-    const motArr = mot.split('');
-    // console.log('mot', mot);
-    // console.log('motArr', motArr);
-    const motMappage = motArr.map((lettre) =>{
-        return {
-            lettre,
-            estVisible:false
-        };
-    });
-    return motMappage;
-};
-
-let generChoix = () =>{
+const genererChoix = () => {
     const choix = [];
-    for(let index = 65; index <= 90; index ++){
+    for(let index = 65; index <= 90; index++) {
         choix.push(String.fromCharCode(index));
-    };
+    }
     return choix;
 };
 
-const obtenirChoixMappage = (choix) =>{
-    choixMappage = choix.map((lettre) =>{
-        return{
+const genererChoixMappage = (choix) => {
+    const choixMappage = choix.map((lettre) => {
+        return {
             lettre,
-            estChoisi : false
+            estChoisi: false
         };
     });
     return choixMappage;
 };
 
+const obtenirMotMappage = (mot) => {
+    const wordArr = mot.split('');
+    // console.log('mot', mot);
+    // console.log('wordArr', wordArr);
+    const motMappage = wordArr.map((lettre, index) => {
+        let estVisible = false;
+        if (index === 0 || index == wordArr.length - 1) {
+            estVisible = true;
+        }
 
+        return {
+            lettre,
+            estVisible
+        };
+    });
+    return motMappage;
+};
 
-window.addEventListener('load', () =>{
-    initialisation();
-});
+const choisirMot = () => {
+    const indexAléatoire = obtenirMotAleatoir(0, mots.length - 1);
 
-
-// La fonction pour générer le mot aléatoire
-const generMotAleatoire = (min, max) => {
+    return mots[indexAléatoire];
+};
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+const obtenirMotAleatoir = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}

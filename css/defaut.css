@@ -1,0 +1,44 @@
+.flex{
+    display: flex;
+}
+#choix li, #reponse li {
+    display: inline-block;
+    margin: 10px;
+}
+
+img {
+    width: 200px;
+    border: 1px solid red;
+    margin-left: 25px;
+}
+
+.disabled {
+    opacity: .3;
+}
+
+body {
+    display: flex;
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+}
+
+#choix, #reponse {
+    flex-grow: 1;
+}
+
+#score {
+    height: 100vh;
+    width: 40vw;
+    /* background: green; */
+}
+#choix {
+    /* background: blue; */
+}
+#reponse {
+    /* background: red; */
+}

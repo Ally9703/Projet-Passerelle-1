@@ -1,22 +1,22 @@
-#answer{
+#reponse{
     border :2px solid #ff0000;
     margin-bottom: 5px;
     text-align: center;
 }
-#answer ul li{
+#reponse ul li{
     margin: 10px;
     display: inline-block;
 
 }
 
-#choices{
+#choix{
     border: 2px solid blue;
     text-align: center;
     width: 50%;
     margin: 0 auto;
     
 }
-#choices ul li {
+#choix ul li {
     display: inline-block;
     margin: 13px;
     cursor: pointer;

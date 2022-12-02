@@ -95,7 +95,7 @@ const init = () => {
 };
 
     // chequer lettre
-    //  - if not in mot: add score
+    //  - si n'est unmot: ajouter score
     //  - if in mot: display lettre
     //  - finJeux
     //     - if score == max: loseGame
@@ -140,10 +140,11 @@ const chequerLettre = (lettre) => {
 const finJeux = () => {
     motMappage.forEach(w => w.estVisible = true);
     afficherMot(motMappage);
-    document.querySelector('body').style.backgroundColor = 'red';
+    document.querySelector('#contenue').style.backgroundColor = 'red';
     elements.choix.innerHTML = `<h1>Tu as perdu !</h1>`;
 };
 const gagnerJeux = () => {
+    document.querySelector('#contenue').style.backgroundColor = 'green';
     elements.choix.innerHTML = `<h1>Félicitation tu as gagné la parties!</h1>`;
 }
 

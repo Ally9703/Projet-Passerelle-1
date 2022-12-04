@@ -141,6 +141,7 @@ const finJeux = () => {
     motMappage.forEach(w => w.estVisible = true);
     afficherMot(motMappage);
     document.querySelector('#contenue').style.backgroundColor = 'red';
+
     elements.choix.innerHTML = `<h1>Tu as perdu !</h1>`;
 };
 const gagnerJeux = () => {

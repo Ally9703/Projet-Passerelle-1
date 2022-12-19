@@ -4,63 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/defaut.css">
+    <!-- <link rel="stylesheet" href="css/defaut.css"> -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="shurtcut icon" href="">
     <title>Le jeu du pendu</title>
 </head>
 <body>
 
-    <section id="contenue">
-        <header>
-            <div id="flex-header" class="container">
-                <div id="logo">ALLIANCE TSHINDAYI</div>
-
-                <nav>
-                    <ul>
-                        <li><a href="https://github.com/Ally9703">Réalisation</a></li>
-                        <li><a href="mailto:allytshindayi@gmail.com">Contactez-moi</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <section>
+        <header class="container">
+            <div class="logo">Alliance Tshindayi</div>
+            <div><h1>Bienvenue sur le Jeu de pendu</h1></div>
+            <nav>
+                <ul>
+                    <li class="link1"><a href="">Contactez-moi</a></li>
+                    <li class="link"><a href="">Réalisations</a></li>
+                </ul>
+            </nav>
         </header>
-
-        <div class="container">
-            <div class="flex">
-                <div id="wrapper">
-                    <div id="reponse">
-                        <span>Bienvenue sur le Jeu de Pendu</span>
-                        <ul></ul>
-                    </div>
-                    <span class="span">Uliser le clavier virtuel ou directement votre clavier <br> deviner et gagné la partie !</span>
-                    <span class="span1">Uliser les clavier du téléphone</span>
-                    <div id="choix"> 
-                        <ul>
-                        </ul>
-                    </div>
+        <main class="container">
+            <section>
+                <div class="images">
+                    <img src="images/1.png" alt="pendu" class="picture1">
+                    <img src="images/2.png" alt="pendu" class="picture2">
+                    <img src="images/3.png" alt="pendu" class="picture3">
+                    <img src="images/4.png" alt="pendu" class="picture4">
+                    <img src="images/5.png" alt="pendu" class="picture5">
+                    <img src="images/6.png" alt="pendu" class="picture6">
+                    <img src="images/7.png" alt="pendu" class="picture7">
+                    <img src="images/8.png" alt="pendu" class="picture8">
+                    <img src="images/9.png" alt="pendu" class="picture9">
+                    <img src="images/10.png" alt="pendu" class="picture10">
+                    <img src="images/11.png" alt="pendu" class="picture11">
                 </div>
-    
-                <div id="score">
-                    <span>Voici ici le resultat</span>
+                <div class="containerResultat">
+                    <div class="defaite">
+                        <h3>Vous avez <span class="LaVie">xx</span>vies</h3>
+                    </div> 
+                    <div class="resultatFinal"></div>     
                 </div>
-            </div>
-        </div>   
+            </section>
+        </main>
     </section>
-    <div class="flex-ble">
-        <div class="loader"></div>
-        <div class="loader1"></div>
-        <div class="loader1"></div>
-        <div class="loader"></div>
-    </div>
     <footer>
-        <div class="container">
-            &copy; Alliance Tshindayi
-        </div>
+        <span>Alliance Tshindadyi</span>
     </footer>
-
     
-
-    
-
     <script src="js/script.js"></script>
 </body>
 </html>

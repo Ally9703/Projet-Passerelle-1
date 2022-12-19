@@ -77,7 +77,7 @@ const init = () => {
     elements.choix.addEventListener('click', ({ target }) => {
         // evt:MouseEvent evt.target => { target }
         if (target.matches('li')) {
-            chequerLettre(target.innerHTML);
+            verifierLettre(target.innerHTML);
         } 
     });
     //    - keyboard events
@@ -87,10 +87,9 @@ const init = () => {
         const lettre = String.fromCharCode(keyCode);
         // console.log('lettre', lettre);
         if (keyCode >= 65 && keyCode <= 90) {
-            chequerLettre(lettre);
+            verifierLettre(lettre);
         }
     });
-
 
 };
 
@@ -100,7 +99,7 @@ const init = () => {
     //  - finJeux
     //     - if score == max: loseGame
     //     - if lettre are visible: gagnerJeux
-const chequerLettre = (lettre) => {
+const verifierLettre = (lettre) => {
     console.log(lettre);
     let estLettreDansMot = false;
     let estToutLettreTouvrer = true;

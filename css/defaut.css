@@ -1,46 +1,66 @@
 /* Police */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+:root {
+    --bg-color: #eff1f2;
+    --dark-bg-color: #222;
+    --primary-color: #7766ae;
+    --secondary-color: #14b8a6;
+    --secondary-color-light: #18f9df;
+    --text-color: #484848;
+    --grey-color: #707070;
+    --success-color: #22c55e;
+    --success-color-light: #7fffae;
+    --skeleton-color: #f1f2f3;
+    --danger-color: #ef4444;
+    --danger-color-light: #ffa4a4;
+    --gold-color: #ebd298;
+    --gold-color-light: #fff5bf;
+    --gold-color-dark: #736649;
+}
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif, 'Roboto';
 }
 
 
 body{
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
     min-width: 400px;
 }
 
 /* HEADER START */
 header{
     padding: 15px;
+    text-align: center;
+    /* padding: 25px; */
+    background: rgb(210, 100, 80);
+    color: white;
 }
 
-nav ul{
-    list-style: none;
-    margin: 0; padding: 0;
+.nav{
+    align-items: center;
+    display: flex;
+    height: calc(100% - 2px);
+    justify-content: space-between;
+    width: 100%;
 }
-nav ul li{
-    display: inline-block;
-    margin-left: 10px;
-}
-nav ul li a{
-    color: black;
-    text-decoration:none;
-    font-weight: 500;
-}
-nav ul li a:hover{
-    font-weight: 700;
-    color: rgb(161, 86, 86);
-    transition: all 0.5s;
+.tets{
+    
+    background-color: var(--bg-color);
+    box-shadow: 0 3px 6px rgb(0 0 0 / 15%);
+    display: flex;
+    flex-direction: column;
+    height: 3.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 #contenue{
-    background:lightsteelblue;
+    background:var(--bg-color);
     height: 100vh;
     overflow: hidden;
     color: black;

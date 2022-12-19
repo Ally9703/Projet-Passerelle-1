@@ -25,18 +25,18 @@
 }
 body{
     background-color: var(--bg-color);
-    color: var(--primary-color);
 }
 header{
     padding: 12px;
     text-align: center;
     /* background: rgb(210, 100, 80); */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: calc(100% - 2px);
-    border-bottom: 3px solid rgb(232, 228, 228);
+    border-bottom: 3px solid var(--primary-color);
+    /* color: var(--primary-color); */
 }
 .logo{
     font-family: 'Tangerine', serif;
@@ -61,7 +61,7 @@ nav ul {
     font-weight: bold;
 }
 .link:hover{
-    /* background-color:var(--primary-color); */
+    background-color:var(--primary-color);
     color: var(--skeleton-color);
 }
 

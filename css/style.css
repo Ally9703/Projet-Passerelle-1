@@ -25,6 +25,9 @@
 }
 body{
     background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
 }
 header{
     padding: 12px;
@@ -71,3 +74,41 @@ nav ul {
     transition: all .25s ease;
     font-weight: bold;
 }
+.touches{
+    display: grid;
+    grid-template-columns: repeat(13, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-gap: 7px;
+    justify-content: center;
+
+}
+button{
+    border: none;
+    outline:none;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0 3px #a8a8a8;
+    font-size:18px;
+    cursor: pointer;
+}
+
+button:active{
+    box-shadow: 0 1px #a8a8a8; 
+    transform: translateY(2px);
+    background-color: red;
+}
+button[value="10"]{
+    background-color: #463e34;
+    font-weight: bold;
+    color: white;
+}
+button[value="10"]{
+    grid-column: span 13;
+    grid-column-start:3 ;
+    grid-column-end:12 ;
+    /* background-color: #36e700; */
+   font-weight: bold;
+   color: white;
+   font-size: 30px;
+}
+

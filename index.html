@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="css/defaut.css"> -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/test.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="shurtcut icon" href="">
     <title>Le jeu du pendu</title>
@@ -23,34 +24,31 @@
                 </ul>
             </nav>
         </header>
-        <main class="container">
-            <section class="contenue">
-                <div class="images">
-                    <img src="images/1.png" alt="pendu" class="picture1">
-                    <img src="images/2.png" alt="pendu" class="picture2">
-                    <img src="images/3.png" alt="pendu" class="picture3">
-                    <img src="images/4.png" alt="pendu" class="picture4">
-                    <img src="images/5.png" alt="pendu" class="picture5">
-                    <img src="images/6.png" alt="pendu" class="picture6">
-                    <img src="images/7.png" alt="pendu" class="picture7">
-                    <img src="images/8.png" alt="pendu" class="picture8">
-                    <img src="images/9.png" alt="pendu" class="picture9">
-                    <img src="images/10.png" alt="pendu" class="picture10">
-                    <img src="images/11.png" alt="pendu" class="picture11">
+        <main>
+            <section id="mainContainer">
+                <div class="contenues">
+                    <div class="images">
+                        <img src="/images/pendu1.png" alt="image-pendu" class="echec1" height="310">
+                        <img src="/images/pendu2.png" alt="image-pendu" class="echec2" height="310">
+                        <img src="/images/pendu3.png" alt="image-pendu" class="echec3" height="310">
+                        <img src="/images/pendu4.png" alt="image-pendu" class="echec4" height="310">
+                        <img src="/images/pendu5.png" alt="image-pendu" class="echec5" height="310">
+                        <img src="/images/pendu6.png" alt="image-pendu" class="echec6" height="310">
+                        <img src="/images/pendu7.png" alt="image-pendu" class="echec7" height="310">
+                        <img src="/images/pendu8.png" alt="image-pendu" class="echec8" height="310">
+                        <img src="/images/pendu9.png" alt="image-pendu" class="echec9" height="310">
+                        <img src="/images/pendu10.png" alt="image-pendu" class="echec10" height="310">
+                        <img src="/images/pendu11.png" alt="image-pendu" class="echec11" height="310">
+                    </div>
+                    <div class="containerResultat">
+                        <div class="defaite">
+                            <h3>Vous avez <span class="LaVie">xx</span>vies</h3>
+                        </div> 
+                        <div class="resultatFinal"></div>     
+                    </div>
                 </div>
-                <div class="containerResultat">
-                    <div class="defaite">
-                        <h3>Vous avez <span class="LaVie">xx</span>vies</h3>
-                    </div> 
-                    <div class="resultatFinal"></div>     
-                </div>
-                <div class="formContainer">
-                    <form class="form">
-                        <input placeholder="Tapez un mot a 7 letrres" class="input" autofocus>
-                        <button type="submit" class="go">Go</button>
-                    </form>
-                </div>
-                <div class="answer">
+                
+                <div class="containerTouches">
                     <div class="touches">
                         <button id="A" value="a" class="button">A</button>
                         <button id="B" value="b" class="button">B</button>

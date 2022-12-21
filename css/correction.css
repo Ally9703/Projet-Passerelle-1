@@ -13,6 +13,7 @@
     --secondary-color: #14b8a6;
     --secondary-color-light: #18f9df;
     --text-color: #484848;
+    
     --danger-color-light: #ffa4a4;
     --gold-color: #ebd298;
     --boxshadow-color:#a8a8a8;
@@ -89,7 +90,7 @@ nav ul {
     border-radius: 5%; 
 }
 
-.subContainer{
+.containerResultat{
     border: 1px solid var(--border-color-blue);
     background-color:rgb(118, 147, 159);
     border-radius: 5px;
@@ -106,14 +107,6 @@ img{
     user-select: none;
     margin-left: 70px;
     width: 100%;
-}
-
-.result {
-    text-align: center;
-    margin-top: 25%;
-    font-size: 3em;
-    font-weight: bold;
-    color: #fff;
 }
 
 /*  CONTAINER DES TOUCHES */
@@ -205,52 +198,12 @@ button[value="10"]{
     margin-bottom: 2rem;
 }
 
-.noLife {
-    margin: 25px 0;
-    margin-left: 40px;
-    font-size: 1.5em;
-    color: white;
-    
-}
+
+
+
+
 
 
 footer{
     padding: 5px;
-}
-
-
-
-#newGame1, #newGame2 {
-    width: 301px;
-    border-radius: 15px;
-    margin-top: 60px;
-}
-
-#newGame1 {
-    background: #7fd715;
-    border-bottom: 4px solid #599016;
-}
-
-#newGame2 {
-    background: #d91414;
-    border-bottom: 4px solid #900e0e;
-}
-
-#newGame1:focus {
-    border-bottom: none;
-}
-
-#newGame2:focus {
-    border-bottom: none;
-}
-
-
-
-@media all and (max-width: 1205px) {
-    .state{
-         margin-right: 5em;
-    }
-    .keyboard {
-        width: 280px;
-    }
 }

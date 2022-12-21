@@ -1,31 +1,28 @@
-// SECTION DES ELEMENTS
-let images = document.querySelectorAll('img');
-let vie = document.querySelector('.laVie');
-let scoreFinale = document.querySelector('.resultatFinal');
+// Salut le correcteur j'ai essayé d'ecrire un code simple a comprendrendre alors j'espers que se ne sera pas trop brouilons pour vous
+// Appeler TT les elements du DOM que j'aurais besoins:
+
+let img = document.querySelectorAll('img');
+let lifeLeft = document.querySelector('.life');
+let fullWordResult = document.querySelector('.result');
 let result = document.querySelector('.span');
 let buttons = document.querySelectorAll('.button');
-let gagner = document.querySelector('.gagnerLaPartie');
-let perd = document.querySelector('.perdue');
+let go = document.querySelector('.go')
+let form = document.querySelector('.form');
+let input = document.querySelector('.input');
+let win = document.querySelector('.won');
+let lose = document.querySelector('.lost');
 let hiddenWord = document.querySelectorAll('.hiddenWord');
-let laVide = 11;
-vie.textContent = laVide;
-let index = -1; 
+var life = 11;
+lifeLeft.textContent = life;
+var index = -1; 
 
 
-// LES MOTS ALEATOIRE A GENERER
+// Generer un mot aleatoire:
 
-const mots = [
-    'TELEVISION', 'GARAGE', 'RESTAURANT', 'SANDWICH',
-    'BISCUIT', 'ELEPHANT', 'CROCODILE', 'HAMSTER',
-    'TRAMWAY', 'TAXI', 'AMBULANCE', 'SCOOTER', 'PRESIDENT',
-    'ABSTENTION', 'ABSTINENCE', 'ACCESSIBLE', 'HUMOUR',
-    'IDIOT', 'ESSENCE', 'IMPORTANT', 'INTERNET', 'INTERNATIONAL',
-    'MATHS', 'POLICE', 'SIMPLE', 'SPORT', 'IMAGINATION',
-    'VIOLET', 'ROSE', 'LEGAL'
-];
+const words = [  'angle', 'armoire', 'banc', 'bureau', 'cabinet', 'carreau', 'chaise', 'classe', 'coin', 'couloir', 'dossier', 'eau', 'escalier', 'lavabo', 'lecture', 'lit', 'marche', 'matelas', 'maternelle', 'meuble', 'mousse', 'mur', 'peluche', 'placard', 'plafond', 'porte', 'portemanteau', 'poubelle', 'radiateur', 'rampe','rideau', 'robinet', 'salle', 'savon', 'serrure', 'serviette', 'sieste', 'silence', 'sol', 'sommeil', 'sonnette', 'sortie', 'table', 'tableau', 'tabouret', 'tapis', 'tiroir', 'toilette', 'vitre'];
 
-var randomWord = Math.floor(Math.random() * mots.length);
-var wordOut = mots[randomWord]
+var randomWord = Math.floor(Math.random() * words.length);
+var wordOut = words[randomWord]
 var wordTab = [...wordOut];
 
 hiddenWord.forEach(word => {
@@ -35,11 +32,11 @@ hiddenWord.forEach(word => {
 
 // Fonction si le joueur gagne ou perd + la fonction pour check si le joueur a trouvé les bonnes lettres:
 
-function perd() {
+function lost() {
   lose.style.transform = 'translateY(0%)';
 }
 
-function gagner() {
+function won() {
   win.style.transform = 'translateY(0%)';
 }
 
@@ -90,11 +87,11 @@ buttons.forEach(btn => {
               lifeLeft.textContent = life; 
 
               if (life <= 0) {
-              perd();
+              lost();
               }
 
               if (arrayEquals(tableItem, wordTab) == true) {
-              gagner()
+              won()
               }
              
              }); 
@@ -123,11 +120,11 @@ form.addEventListener('submit', (e) => {
         input.style.border = '2px solid #75D701';
         input.disabled = true;
         go.disabled = true;
-        gagner();
+        won();
     }
 
     if (life <= 0) {
-      perd();
+      lost();
       }
     lifeLeft.textContent = life; 
 });        

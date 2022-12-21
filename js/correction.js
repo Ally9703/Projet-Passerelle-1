@@ -32,8 +32,8 @@ const mots = [
   'legal'
 ];
 
-const randomWord = Math.floor(Math.random() * mots.length);
-const motALaSortie = mots[randomWord]
+const motALeatoire = Math.floor(Math.random() * mots.length);
+const motALaSortie = mots[motALeatoire]
 var taperMot = [...motALaSortie];
 
 // TRANSFORMATION DU MOT GENERER EN MAJUSCULE 
@@ -52,7 +52,7 @@ function gagnerLaPartie() {
   vaincre.style.transform = 'translateY(0%)';
 }
 
-function arrayEquals(a, b) {
+function tableauVaut(a, b) {
   return Array.isArray(a) &&
     Array.isArray(b) &&
     a.length === b.length &&
@@ -65,11 +65,11 @@ function arrayEquals(a, b) {
 var tableauElements = [];
 
 for (let i = 0; i < taperMot.length; i++) {
-  const newElem = document.createElement("span");
-  newElem.innerText = " _ ";
-  afficherMotAleatoire.append(newElem); 
-  newElem.classList.add("span");
-  tableauElements.push(newElem);
+  const nouvelleElement = document.createElement("span");
+  nouvelleElement.innerText = " _ ";
+  afficherMotAleatoire.append(nouvelleElement); 
+  nouvelleElement.classList.add("span");
+  tableauElements.push(nouvelleElement);
 }
 
 
@@ -102,7 +102,7 @@ buttons.forEach(btn => {
               perdreLaPartie();
               }
 
-              if (arrayEquals(tableauElements, taperMot) == true) {
+              if (tableauVaut(tableauElements, taperMot) == true) {
               gagnerLaPartie()
               }
              

@@ -10,11 +10,7 @@
     --bg-color: #eff1f2;
     --dark-bg-color: rgb(65, 60, 60);
     --primary-color: #7766ae;
-    --secondary-color: #14b8a6;
-    --secondary-color-light: #18f9df;
-    --text-color: #484848;
     --danger-color-light: #ffa4a4;
-    --gold-color: #ebd298;
     --boxshadow-color:#a8a8a8;
     --border-color-blue: rgb(0, 0, 255);
 }
@@ -25,6 +21,7 @@ body{
     flex-direction: column;
     width: 100vw;
 }
+/* L'ENTETE  ET LE NAV*/
 header{
     padding: 9px;
     text-align: center;
@@ -47,10 +44,6 @@ nav ul {
     gap: 20px;
 }
 
-.container{
-    width: 1100px;
-    margin: 0 auto;
-}
 
 .link{
     border: 2px solid var(--primary-color);
@@ -62,7 +55,9 @@ nav ul {
 
 .link:hover{
     background-color:var(--primary-color);
-    color :red;
+}
+.link a:hover{
+    color: white;
 }
 
 .link1{
@@ -72,6 +67,10 @@ nav ul {
     font-weight: bold;
 }
 
+.container{
+    width: 1100px;
+    margin: 0 auto;
+}
 
 /* CONTAINER DE DEUX ECRANTS DES IMAGES ET RESULTA */
 .contenues{

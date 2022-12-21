@@ -5,10 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Inter", sans-serif;
-  /* background-color:rgb(118, 147, 159); */
 }
+
 .formbold-main-wrapper{
     background-color:#eff1f2;
 }
@@ -133,7 +134,7 @@ body {
   padding: 14px 25px;
   border: none;
   font-weight: 500;
-  background-color: #6A64F1;
+  background-color: #7766ae;
   color: white;
   cursor: pointer;
   margin-top: 25px;

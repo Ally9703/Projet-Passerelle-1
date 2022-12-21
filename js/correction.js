@@ -1,43 +1,55 @@
-// Salut le correcteur j'ai essayé d'ecrire un code simple a comprendrendre alors j'espers que se ne sera pas trop brouilons pour vous
-// Appeler TT les elements du DOM que j'aurais besoins:
+// SECTION DES ELEMENTS
 
 let img = document.querySelectorAll('img');
-let lifeLeft = document.querySelector('.life');
-let fullWordResult = document.querySelector('.result');
+let comptage = document.querySelector('.decompteur');
+let afficherMotAleatoire = document.querySelector('.motAleatoire');
 let result = document.querySelector('.span');
 let buttons = document.querySelectorAll('.button');
-let go = document.querySelector('.go')
-let form = document.querySelector('.form');
-let input = document.querySelector('.input');
-let win = document.querySelector('.won');
-let lose = document.querySelector('.lost');
-let hiddenWord = document.querySelectorAll('.hiddenWord');
-var life = 11;
-lifeLeft.textContent = life;
-var index = -1; 
+let vaincre = document.querySelector('.gagner');
+let perdue = document.querySelector('.perdre');
+let cacherLeMot = document.querySelectorAll('.motcacher');
+let decompteurVies = 11;
+comptage.textContent = decompteurVies;
+let index = -1; 
 
 
-// Generer un mot aleatoire:
+// GENER DES MOTS ALEATOIRE
 
-const words = [  'angle', 'armoire', 'banc', 'bureau', 'cabinet', 'carreau', 'chaise', 'classe', 'coin', 'couloir', 'dossier', 'eau', 'escalier', 'lavabo', 'lecture', 'lit', 'marche', 'matelas', 'maternelle', 'meuble', 'mousse', 'mur', 'peluche', 'placard', 'plafond', 'porte', 'portemanteau', 'poubelle', 'radiateur', 'rampe','rideau', 'robinet', 'salle', 'savon', 'serrure', 'serviette', 'sieste', 'silence', 'sol', 'sommeil', 'sonnette', 'sortie', 'table', 'tableau', 'tabouret', 'tapis', 'tiroir', 'toilette', 'vitre'];
+const mots = [  
+  'garage',
+  'taxi',
+  'ambulance',
+  'president',
+  'humour',
+  'idiot',
+  'maths',
+  'police',
+  'simple',
+  'sport',
+  'imagination',
+  'violet',
+  'rose',
+  'legal'
+];
 
-var randomWord = Math.floor(Math.random() * words.length);
-var wordOut = words[randomWord]
-var wordTab = [...wordOut];
+const randomWord = Math.floor(Math.random() * mots.length);
+const motALaSortie = mots[randomWord]
+var taperMot = [...motALaSortie];
 
-hiddenWord.forEach(word => {
-  word.textContent = wordOut.toUpperCase();
+// TRANSFORMATION DU MOT GENERER EN MAJUSCULE 
+cacherLeMot.forEach(mot => {
+  mot.textContent = motALaSortie.toUpperCase();
 });
 
 
-// Fonction si le joueur gagne ou perd + la fonction pour check si le joueur a trouvé les bonnes lettres:
+// LES DEUX FONCTIONS GAGNER ER PERDRE 
 
-function lost() {
-  lose.style.transform = 'translateY(0%)';
+function perdreLaPartie() {
+  perdue.style.transform = 'translateY(0%)';
 }
 
-function won() {
-  win.style.transform = 'translateY(0%)';
+function gagnerLaPartie() {
+  vaincre.style.transform = 'translateY(0%)';
 }
 
 function arrayEquals(a, b) {
@@ -50,81 +62,50 @@ function arrayEquals(a, b) {
 
 // Generer un tiret pour chaque lettres:
 
-var tableItem = [];
+var tableauElements = [];
 
-for (let i = 0; i < wordTab.length; i++) {
+for (let i = 0; i < taperMot.length; i++) {
   const newElem = document.createElement("span");
-  newElem.innerText = "_ ";
-  fullWordResult.append(newElem); 
+  newElem.innerText = " _ ";
+  afficherMotAleatoire.append(newElem); 
   newElem.classList.add("span");
-  tableItem.push(newElem);
+  tableauElements.push(newElem);
 }
 
 
-// Verfication pour chaque lettres:
+// VERIFICATION DES LETTRES
 
 buttons.forEach(btn => {
         btn.addEventListener('click', () => {
             buttonClicked = btn.getAttribute('value'); 
             btn.disabled = true;
 
-            if (wordTab.indexOf(buttonClicked) > -1) {
+            if (taperMot.indexOf(buttonClicked) > -1) {
                 btn.style.backgroundColor = '#75D701';
                 
-                for (let i = 0; i < wordTab.length; i++) {
-                  if (buttonClicked === wordTab[i]) {
-                    tableItem[i].textContent = buttonClicked.toUpperCase() + ' ';
-                    tableItem[i] = buttonClicked;
+                for (let i = 0; i < taperMot.length; i++) {
+                  if (buttonClicked === taperMot[i]) {
+                    tableauElements[i].textContent = buttonClicked.toUpperCase() + ' ';
+                    tableauElements[i] = buttonClicked;
                   
                   } 
                 } 
               } else {
                 btn.style.backgroundColor = '#f9320c';
-                life--;
+                decompteurVies--;
                 index++;
                 img[index].style.display = 'block';
               }
-              lifeLeft.textContent = life; 
+              comptage.textContent = decompteurVies; 
 
-              if (life <= 0) {
-              lost();
+              if (decompteurVies <= 0) {
+              perdreLaPartie();
               }
 
-              if (arrayEquals(tableItem, wordTab) == true) {
-              won()
+              if (arrayEquals(tableauElements, taperMot) == true) {
+              gagnerLaPartie()
               }
              
              }); 
          });
       
-
-// Ferification de l'input
-
-form.addEventListener('submit', (e) => {
-
-    e.preventDefault();
-    console.log(input.value);
-
-    if (!isNaN(input.value) || input.value == '') {
-        input.style.border = '2px solid #f9320c';
-        input.value = '';
-    }else if (input.value != wordOut){
-        input.style.border = '2px solid #f9320c';
-        input.value = '';
-        life--;
-        index++
-        img[index].style.display = 'block';
-    }
-    else {
-        fullWordResult.textContent = wordOut.toUpperCase() + ' ';
-        input.style.border = '2px solid #75D701';
-        input.disabled = true;
-        go.disabled = true;
-        won();
-    }
-
-    if (life <= 0) {
-      lost();
-      }
-    lifeLeft.textContent = life; 
-});        

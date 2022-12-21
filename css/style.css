@@ -46,6 +46,7 @@ nav ul {
     display: flex;
     gap: 20px;
 }
+
 .container{
     width: 1100px;
     margin: 0 auto;
@@ -58,6 +59,7 @@ nav ul {
     transition: all .25s ease;
     font-weight: bold;
 }
+
 .link:hover{
     background-color:var(--primary-color);
     color :red;
@@ -79,7 +81,7 @@ nav ul {
 }
 
 .images{
-    border: 1px solid var(--border-color-blue);
+    /* border: 1px solid var(--border-color-blue); */
     background-color:rgb(118, 147, 159);
     border-radius: 5px;
     position: relative;
@@ -87,10 +89,13 @@ nav ul {
     height: 50vh;
     margin-top: 11px;
     border-radius: 5%; 
+    box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
+    -webkit-box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
+    -moz-box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
 }
 
-.subContainer{
-    border: 1px solid var(--border-color-blue);
+.containerCompteur{
+    /* border: 1px solid var(--border-color-blue); */
     background-color:rgb(118, 147, 159);
     border-radius: 5px;
     position: relative;
@@ -98,6 +103,9 @@ nav ul {
     height: 50vh;
     margin-top: 11px;
     border-radius: 5%; 
+    box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
+    -webkit-box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
+    -moz-box-shadow: -2px 6px 11px 0px rgba(111, 69, 69, 0.95);
 }
 
 img{
@@ -108,12 +116,21 @@ img{
     width: 100%;
 }
 
-.result {
+.motAleatoire {
     text-align: center;
     margin-top: 25%;
     font-size: 3em;
     font-weight: bold;
     color: #fff;
+}
+
+h3 span{
+    color: red;
+    font-weight: bold;
+    border: 2px solid rgb(140, 213, 245);
+    border-radius: 12px;
+    padding: 5px;
+    background-color:rgb(140, 213, 245);
 }
 
 /*  CONTAINER DES TOUCHES */
@@ -159,7 +176,7 @@ button[value="10"]{
 
 /* LA CLASSE REUSSITE ET ECHEC */
 
-.won, .lost {
+.gagner, .perdre {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -178,7 +195,7 @@ button[value="10"]{
 
 
 
-.won .p, .h3 {
+.gagner .p, .h3 {
     display: block;
     font-size: 2rem;
     background-color: #7fd715;  
@@ -187,7 +204,7 @@ button[value="10"]{
 
 }
 
-.lost .p, .h3 {
+.perdre .p, .h3 {
     display: block;
     font-size: 2rem;
     background-color: #d91414;
@@ -196,61 +213,57 @@ button[value="10"]{
 }
 
 
-.won .h3 {
+.gagner .h3 {
     margin-bottom: 2rem;
     background-color: #7fd715;  
 }
 
-.lost .h3 {
+.perdre .h3 {
     margin-bottom: 2rem;
 }
 
-.noLife {
+.compteur {
     margin: 25px 0;
     margin-left: 40px;
     font-size: 1.5em;
     color: white;
-    
 }
 
 
 footer{
-    padding: 5px;
+    /* padding: 5px; */
+    width: 1100px;
+    margin: 0 auto;
 }
 
 
 
-#newGame1, #newGame2 {
+#nouveauJeux1, #nouveauJeux2 {
     width: 301px;
     border-radius: 15px;
     margin-top: 60px;
 }
 
-#newGame1 {
+#nouveauJeux1 {
     background: #7fd715;
     border-bottom: 4px solid #599016;
 }
 
-#newGame2 {
+#nouveauJeux2 {
     background: #d91414;
     border-bottom: 4px solid #900e0e;
 }
 
-#newGame1:focus {
+#nouveauJeux1:focus {
     border-bottom: none;
 }
 
-#newGame2:focus {
+#nouveauJeux2:focus {
     border-bottom: none;
 }
 
 
 
 @media all and (max-width: 1205px) {
-    .state{
-         margin-right: 5em;
-    }
-    .keyboard {
-        width: 280px;
-    }
+    
 }

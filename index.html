@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="/css/test.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="shurtcut icon" href="">
-    <title>Le jeu du pendu</title>
+    <title>Correction</title>
 </head>
 <body>
 
@@ -19,8 +19,8 @@
             <div><h1>Bienvenue sur le Jeu de pendu</h1></div>
             <nav>
                 <ul>
-                    <li class="link1"><a href="">Contactez-moi</a></li>
-                    <li class="link"><a href="">Réalisations</a></li>
+                    <li class="link1"><a href="/contact/contact.html">Contactez-moi</a></li>
+                    <li class="link"><a href="https://github.com/Ally9703" target="_blank">Réalisations</a></li>
                 </ul>
             </nav>
         </header>
@@ -40,15 +40,15 @@
                         <img src="/images/pendu10.png" alt="pendu" class="picture10" height="310">
                         <img src="/images/pendu11.png" alt="pendu" class="picture11" height="310">
                     </div>
-                    <div class="subContainer">
-                        <div class="noLife">
-                            <h3>Vous avez <span class="life">xx</span>vies</h3>
+                    <div class="containerCompteur">
+                        <div class="compteur">
+                            <h3>Décompteur de vues <span class="decompteur">xx</span></h3>
                         </div> 
-                        <div class="result"></div>     
+                        <div class="motAleatoire"></div>     
                     </div>
                 </div>
                 
-                <div class="answer">
+                <div class="containerTouches">
                     <div class="touches">
                         <button id="A" value="a" class="button">A</button>
                         <button id="B" value="b" class="button">B</button>
@@ -82,24 +82,24 @@
             </section>
         </main>
     </section>
-    <section class="won">
+    <section class="gagner">
         <div >
-            <h3 class="h3">Felicitation tu as trouvé le mot: <span class="hiddenWord">...</span></h3>
+            <h3 class="h3">Felicitation tu as trouvé le mot: <span class="motcacher">...</span></h3>
             <p class="p">BIEN JOUER !</p>
-            <button id="newGame1" type="button" onClick="window.location.reload()">Nouvelle partie</button>
+            <button id="nouveauJeux1" type="button" onClick="window.location.reload()">Nouvelle partie</button>
         </div>
     </section>
-    <section class="lost">
+    <section class="perdre">
         <div >
-            <h3 class="h3">Oups, il semblerait que tu es perdus, le mot a trouver été: <span class="hiddenWord">...</span>,<br> ceci devrait te remonter le morale:</h3>
+            <h3 class="h3">Oups, il semblerait que tu es perdus, le mot a trouver été: <span class="motcacher">...</span>,<br> ceci devrait te remonter le morale:</h3>
             <p class="p">“Pour faire un bon vainqueur il faut être bon perdant.”</p>
-            <button id="newGame2" type="button" onClick="window.location.reload()">Nouvelle partie</button>
+            <button id="nouveauJeux2" type="button" onClick="window.location.reload()">Nouvelle partie</button>
         </div>
     </section>
     <footer>
         <span>Alliance Tshindadyi</span>
     </footer>
     
-<script src="js/correction.js"></script>
+    <script src="js/correction.js"></script>
 </body>
 </html>
